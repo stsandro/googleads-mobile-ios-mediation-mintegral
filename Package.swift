@@ -25,19 +25,27 @@ let package = Package(
       targets: ["MintegralAdapterTarget"]
     )
   ],
+  dependencies: [
+    .package(
+      name: "MintegralSDK",
+      url: "https://github.com/Mintegral-official/MintegralAdSDK-Swift-Package.git",
+      from: "7.7.9"
+    )
+  ],
   targets: [
     .target(
       name: "MintegralAdapterTarget",
       dependencies: [
         .target(name: "Adapter"),
+        .product(name: "MintegralAdSDK", package: "MintegralSDK"),
       ],
       path: "MintegralAdapterTarget"
     ),
     .binaryTarget(
       name: "Adapter",
       url:
-        "https://dl.google.com/googleadmobadssdk/mediation/ios/mintegral/MintegralAdapter-7.7.8.0.zip",
-      checksum: ""
+        "https://dl.google.com/googleadmobadssdk/mediation/ios/mintegral/MintegralAdapter-7.7.9.0.zip",
+      checksum: "9bf3a09ddbb3044b9a222e1064fda5782cc46a3f255f46ff405ba0826ff88b67"
     ),
   ]
 )
